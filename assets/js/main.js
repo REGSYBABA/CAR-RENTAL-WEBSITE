@@ -1,22 +1,78 @@
 /*=============== SHOW MENU ===============*/
+const navMenu = document.getElementById('nav-menu'),
+    navToggle = document.getElementById('nav-toggle'),
+    navClose = document.getElementById('nav-close')
 
+/*===== MENU SHOW =====*/
+/* Validate if constant exists */
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.add('show-menu')
+    })
+}
+
+/*===== MENU HIDDEN =====*/
+/* Validate if constant exists */
+if (navClose) {
+    navClose.addEventListener('click', () => {
+        navMenu.classList.remove('show-menu')
+    })
+}
 
 /*=============== REMOVE MENU MOBILE ===============*/
+const navLink = document.querySelectorAll('.nav__link')
+
+const linkAction = () => {
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
 
 
 /*=============== CHANGE BACKGROUND HEADER ===============*/
+const scrollHeader = () => {
+    const header = document.getElementById('header')
+    // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
+    this.scrollY >= 50 ? header.classList.add('scroll-header')
+        : header.classList.remove('scroll-header')
+}
+window.addEventListener('scroll', scrollHeader)
 
 
 /*=============== POPULAR SWIPER ===============*/
-
-
+let swiperPopular = new Swiper(".popular__container", {
+    loop: true,
+    spaceBetween: 24,
+    slidesPerView: 'auto',
+    grabCursor: true,
+    // autoplay: {
+    //     delay: 2500,
+    //     disableOnInteraction: false,
+    // },
+    pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+    }
+})
+// var swiperPopular = new Swiper(".popular__container", {
+//     spaceBetween: 24,
+//     slidesPerView: '3',
+//     pagination: {
+//         el: ".swiper-pagination",
+//         clickable: true,
+//         renderBullet: function (index, className) {
+//             return '<span class="' + className + '">' + (index + 1) + "</span>";
+//         },
+//     },
+// });
 /*=============== MIXITUP FILTER FEATURED ===============*/
 
 
-/* Link active featured */ 
+/* Link active featured */
 
 
-/*=============== SHOW SCROLL UP ===============*/ 
+/*=============== SHOW SCROLL UP ===============*/
 
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/

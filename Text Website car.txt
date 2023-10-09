@@ -150,3 +150,48 @@ https://twitter.com/
 
 .footer__copy
 &#169; Bedimcode. All rigths reserved
+
+
+
+/* Show menu */
+
+/* Change background header */
+
+/* Active link */
+
+/*=============== HOME ===============*/
+
+/* Button animate */
+
+/*=============== BUTTON ===============*/
+
+/*=============== ABOUT ===============*/
+
+/*=============== POPULAR ===============*/
+
+/* Swiper class */
+
+/*=============== FEATURES ===============*/
+
+/*=============== FEATURED ===============*/
+
+/* Active link featured */
+
+/*=============== OFFER ===============*/
+
+/*=============== LOGOS ===============*/
+
+/*=============== FOOTER ===============*/
+
+/*=============== SCROLL BAR ===============*/
+
+/*=============== SCROLL UP ===============*/
+
+/* Show Scroll Up*/
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+/* For medium devices */
+
+/* For large devices */
