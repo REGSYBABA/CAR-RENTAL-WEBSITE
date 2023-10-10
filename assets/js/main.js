@@ -46,18 +46,27 @@ let swiperPopular = new Swiper(".popular__container", {
     spaceBetween: 24,
     slidesPerView: 'auto',
     grabCursor: true,
-    // autoplay: {
-    //     delay: 2500,
-    //     disableOnInteraction: false,
-    // },
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
     pagination: {
         el: ".swiper-pagination",
         dynamicBullets: true,
+    },
+    breakpoints: {
+        768: {
+            slidesPerView: 3,
+        },
+        1024: {
+            spaceBetween: 48,
+        },
     }
 })
 // var swiperPopular = new Swiper(".popular__container", {
+//     loop: true,
 //     spaceBetween: 24,
-//     slidesPerView: '3',
+//     slidesPerView: 'auto',
 //     pagination: {
 //         el: ".swiper-pagination",
 //         clickable: true,
@@ -67,15 +76,71 @@ let swiperPopular = new Swiper(".popular__container", {
 //     },
 // });
 /*=============== MIXITUP FILTER FEATURED ===============*/
-
+let mixerFeatured = mixitup('.featured__content', {
+    selectors: {
+        target: '.featured__card'
+    },
+    animation: {
+        duration: 300
+    }
+});
 
 /* Link active featured */
+const linkFeatued = document.querySelectorAll('.featured__item')
 
+function activeFeatured() {
+    linkFeatued.forEach(link => link.classList.remove('active-featured'))
+
+    this.classList.add('active-featured')
+}
+linkFeatued.forEach(link => link.addEventListener('click', activeFeatured))
 
 /*=============== SHOW SCROLL UP ===============*/
+function scrollUp() {
+    const scrollUp = document.getElementById('scroll-up')
+    if (this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+}
+window.addEventListener('scroll', scrollUp)
 
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
+const sections = document.querySelectorAll('section[id]')
 
+const scrollActive = () => {
+    const scrollDown = window.scrollY
+
+    sections.forEach(current => {
+        const sectionHeight = current.offsetHeight,
+            sectionTop = current.offsetTop - 58,
+            sectionId = current.getAttribute('id'),
+            sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+
+        if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+            sectionsClass.classList.add('active-link')
+        } else {
+            sectionsClass.classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+const sr = new ScrollReveal({
+    origin: 'top',
+    distance: '60px',
+    duration: 400,
+    delay: 400,
+    // reset: true 
+})
+
+sr.reveal(`.home__title, .features__img, .featured__filters`)
+sr.reveal(`.home__subtitle`, { delay: 500 })
+sr.reveal(`.home__elec`, { delay: 600 })
+sr.reveal(`.home__img`, { delay: 800 })
+sr.reveal(`.home__car-data`, { delay: 900, interval: 100, origin: 'bottom' })
+sr.reveal(`.home__button`, { delay: 1000, origin: 'bottom' })
+sr.reveal(`.about__group, .offer__data`, { origin: 'left' })
+sr.reveal(`.about__data, .offer__img`, { origin: 'right' })
+sr.reveal(`.features__map`, { delay: 600, origin: 'right' })
+sr.reveal(`.features__card`, { interval: 300 })
+sr.reveal(`.featured__card, .logos__content`, { interval: 100 })
